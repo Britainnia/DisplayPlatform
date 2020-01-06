@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/navigation_main"
+        android:enabled="true"
+        android:title="@string/service" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:enabled="true"
+        android:title="@string/discover" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:enabled="true"
+        android:title="@string/me" />
+
+</menu>

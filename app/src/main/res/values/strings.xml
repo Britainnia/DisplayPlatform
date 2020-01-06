@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">MyPublishPlatform</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">发现</string>
+    <string name="title_notifications">我的</string>
+    <string name="title_main">服务</string>
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="home">首页</string>
+    <string name="service">服务</string>
+    <string name="handle">办理</string>
+    <string name="discover">发现</string>
+    <string name="me">我的</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="estimate_hint">说说你的看法，让其他顾客知道吧</string>
+    <string name="inputUserName">请输入用户名</string>
+    <string name="inputPassword">请输入密码</string>
+    <string name="my_balance">我的余额</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_address">地址管理</string>
+    <string name="log_out">退出登录</string>
+    <string name="my_handle">我的办理</string>
+    <string name="info_maintain">完善资料</string>
+    <string name="modify_password">修改密码</string>
+    <string name="change_cellphone">更换手机</string>
+    <string name="quality">服务质量</string>
+    <string name="attitude">服务态度</string>
+    <string name="punctuality">上门准时</string>
+    <string name="service_info">服务信息</string>
+    <string name="order_info">订单信息</string>
+    <string name="estimate_info">评价信息</string>
+    <string name="order_no">订单编号：</string>
+    <string name="service_type">服务类型</string>
+    <string name="service_person">服务人员</string>
+    <string name="service_time">服务时间</string>
+    <string name="service_mark">服务备注</string>
+    <string name="submit_order">提交订单</string>
+    <string name="no_store">暂无商家</string>
+    <string name="no_order">暂无订单</string>
+    <string name="no_information">暂无资讯</string>
+
+</resources>

@@ -1,19 +1,19 @@
 # Built application files
-*.apk
-*.aar
-*.ap_
-*.aab
+#*.apk
+#*.aar
+#*.ap_
+#*.aab
 
 # Files for the ART/Dalvik VM
-*.dex
+#*.dex
 
 # Java class files
-*.class
+#*.class
 
 # Generated files
-bin/
-gen/
-out/
+#bin/
+#gen/
+#out/
 #  Uncomment the following line in case you need and you don't have the release build type files in your app
 # release/
 

@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+<!--        <item name="android:windowActionBarOverlay">true</item>-->
+<!--        &lt;!&ndash; 兼容支持库 &ndash;&gt;-->
+<!--        <item name="windowActionBarOverlay">true</item>-->
+
+    </style>
+
+    <style name="StartAppTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:background">@mipmap/start_page</item>
+    </style>
+
+    <!--Custom Toolbar Style -->
+    <style name="mToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
+
+        <!-- 设置该属性解决Toolbar左边空白 -->
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <!--底部弹框动画-->
+    <style name="bottomDialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_fr_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fr_out</item>
+    </style>
+
+    <!--标题对话框样式-->
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+</resources>
