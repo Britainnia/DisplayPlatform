@@ -1,6 +1,7 @@
 package com.kira.mypublishplatform.base
 
 import android.os.Bundle
+import androidx.viewbinding.ViewBinding
 
 /**
  * 懒加载fragment基类
@@ -8,7 +9,7 @@ import android.os.Bundle
  * author: shehuan
  */
 
-abstract class LazyLoad2Fragment : BaseFragment() {
+abstract class LazyLoad2Fragment<VB : ViewBinding> : BaseFragment<VB>() {
     private var isViewCreated: Boolean = false // 界面是否已创建完成
     var isVisibleToUser: Boolean = false // 是否对用户可见
     private var isDataLoaded: Boolean = false // 数据是否已请求, isNeedReload()返回false的时起作用
@@ -30,8 +31,8 @@ abstract class LazyLoad2Fragment : BaseFragment() {
         get() {
             val fragment = parentFragment
             return (fragment == null
-                    || fragment is LazyLoad2Fragment && fragment.isVisibleToUser
-                    || fragment is LazyLoad1Fragment && !fragment.isViewHidden)
+                    || fragment is LazyLoad2Fragment<*> && fragment.isVisibleToUser
+                    || fragment is LazyLoad1Fragment<*> && !fragment.isViewHidden)
         }
 
     fun reloadData() {
@@ -75,11 +76,11 @@ abstract class LazyLoad2Fragment : BaseFragment() {
             return
         }
         for (child in fragments) {
-            if (child is LazyLoad2Fragment && child.isVisibleToUser) {
+            if (child is LazyLoad2Fragment<*> && child.isVisibleToUser) {
                 //                ((LazyLoad2Fragment) child).reloadData();
                 child.tryLoadData()
             }
-            if (child is LazyLoad1Fragment && !child.isViewHidden) {
+            if (child is LazyLoad1Fragment<*> && !child.isViewHidden) {
                 //                ((LazyLoad1Fragment) child).reloadData();
                 child.tryLoadData()
             }

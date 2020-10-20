@@ -5,7 +5,7 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="white">#FFFFFF</color>
-    <color name="theme">#00BA9C</color>
+    <color name="theme">#0F84FC</color>
     <color name="red">#DB3427</color>
     <color name="green">#00BA9C</color>
     <color name="green_bg">#CCE9E3</color>
@@ -17,6 +17,7 @@
     <color name="blue">#009ad9</color>
     <color name="bs_blue">#198bd0</color>
 
+    <color name="text_theme">#0069DB</color>
     <color name="text_normal">#DCDCDC</color>
     <color name="text_selected">#111111</color>
     <color name="bottom_navigation_normal">#ECECEC</color>
@@ -61,6 +62,7 @@
     <color name="gray_e0">#ffE0E0E0</color>
     <color name="gray_a5">#ffa5a5a5</color>
     <color name="translucent_60">#60000000</color>
+    <color name="translucent_20">#20000000</color>
     <color name="translucent">#00000000</color>
     <color name="yellow">#FFD30F</color>
     <color name="hint_color">#aaffffff</color>

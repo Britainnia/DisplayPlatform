@@ -5,21 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        app:itemTextColor="@drawable/bottom_navigation_text_selector"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_nav_menu" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/white"-->
+<!--        app:itemTextColor="@drawable/bottom_navigation_text_selector"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:menu="@menu/bottom_nav_menu" />-->
 
     <FrameLayout
         android:id="@+id/ll_frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/nav_view"
+        android:layout_above="@+id/tabs_rg"
         android:layout_marginBottom="0dp" />
+
+    <RadioGroup
+        android:id="@+id/tabs_rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:layout_alignParentBottom="true"
+        android:checkedButton="@+id/home_tab"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/home_tab"
+            style="@style/TabRadioButton"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_home_selected"
+            android:textColor="@drawable/bottom_navigation_text_selector"
+            android:text="@string/home" />
+
+        <RadioButton
+            android:id="@+id/service_tab"
+            style="@style/TabRadioButton"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_service_normal"
+            android:textColor="@drawable/bottom_navigation_text_selector"
+            android:text="@string/service" />
+
+        <View
+            android:id="@+id/middle"
+            style="@style/TabRadioButton" />
+
+        <RadioButton
+            android:id="@+id/discover_tab"
+            style="@style/TabRadioButton"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_discover_normal"
+            android:textColor="@drawable/bottom_navigation_text_selector"
+            android:text="@string/discover" />
+
+        <RadioButton
+            android:id="@+id/me_tab"
+            style="@style/TabRadioButton"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_me_selected"
+            android:textColor="@drawable/bottom_navigation_text_selector"
+            android:text="@string/me" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/gbicc_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:padding="@dimen/dp_5"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/gbicc" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="吉贝克"
+            android:textColor="@color/text_normal"
+            android:layout_marginBottom="@dimen/dp_10" />
+
+    </LinearLayout>
+
 
 </RelativeLayout>

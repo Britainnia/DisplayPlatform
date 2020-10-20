@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_10"
+    android:background="@color/white"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/dp_4">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30">
+
+            <TextView
+                android:id="@+id/title_status"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_4"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="订单已取消"
+                android:textColor="@color/text_selected"
+                android:textSize="@dimen/text_h" />
+
+            <TextView
+                android:id="@+id/refresh_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/text_color"
+                android:text="2019-09-10 12:12:12"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/log_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:padding="@dimen/dp_5"
+            android:text=""
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_xxxm" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

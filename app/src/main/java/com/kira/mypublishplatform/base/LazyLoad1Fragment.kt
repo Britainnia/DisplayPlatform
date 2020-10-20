@@ -1,14 +1,20 @@
 package com.kira.mypublishplatform.base
 
+import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
+
+
 /**
  * 懒加载fragment基类
  * show/hide 方式
  * author: shehuan
  */
 
-abstract class LazyLoad1Fragment : BaseFragment() {
+abstract class LazyLoad1Fragment<VB : ViewBinding> : BaseFragment<VB>() {
     private var isDataLoaded: Boolean = false // 数据是否已请求
     var isViewHidden: Boolean = true // 记录当前fragment的是否隐藏
+
+//    private var _binding : ViewBinding? = super.binding
 
     /**
      * fragment再次可见时，是否重新请求数据，默认为flase则只请求一次数据
@@ -35,8 +41,8 @@ abstract class LazyLoad1Fragment : BaseFragment() {
         get() {
             val fragment = parentFragment
             return (fragment == null
-                    || fragment is LazyLoad2Fragment && fragment.isVisibleToUser
-                    || fragment is LazyLoad1Fragment && !fragment.isViewHidden)
+                    || fragment is LazyLoad2Fragment<*> && fragment.isVisibleToUser
+                    || fragment is LazyLoad1Fragment<*> && !fragment.isViewHidden)
         }
 
     fun reloadData() {
@@ -69,12 +75,12 @@ abstract class LazyLoad1Fragment : BaseFragment() {
             return
         }
         for (child in fragments) {
-            if (child is LazyLoad1Fragment && !child.isViewHidden) {
+            if (child is LazyLoad1Fragment<*> && !child.isViewHidden) {
                 //            if (child instanceof LazyLoad1Fragment) {
                 //                ((LazyLoad1Fragment) child).reloadData();
                 child.tryLoadData()
             }
-            if (child is LazyLoad2Fragment && child.isVisibleToUser) {
+            if (child is LazyLoad2Fragment<*> && child.isVisibleToUser) {
                 //            if (child instanceof LazyLoad2Fragment) {
                 //                ((LazyLoad2Fragment) child).reloadData();
                 child.tryLoadData()

@@ -1,5 +1,6 @@
 package com.kira.mypublishplatform.adapter
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -9,42 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+
 import com.kira.mypublishplatform.R
 import com.kira.mypublishplatform.activity.LoginActivity
+import com.kira.mypublishplatform.base.MyApplication
 import com.kira.mypublishplatform.model.MultipleItem
-import com.kira.mypublishplatform.model.SubModel
 import com.kira.mypublishplatform.ui.web.HandleWebActivity
-import com.kira.mypublishplatform.ui.web.WebActivity
+import com.kira.mypublishplatform.utils.ConstUtils
 import com.kira.mypublishplatform.utils.FastClickUtils.Companion.isValidClick
-import java.util.*
+import com.kira.mypublishplatform.view.TitleDialog
 
 class TabRecyclerAdapter(
     data: List<MultipleItem?>
 ) : BaseMultiItemQuickAdapter<MultipleItem?, BaseViewHolder>(data) {
-    private var dSize: Int
+    private var dSize: Int = data.size
     private var parentHeight = 0
     private var itemHeight = 0
-    private val subs =
-        arrayOf("余额宝", "花呗", "芝麻信用", "借呗", "蚂蚁保险")
-    private val icons = intArrayOf(
-        R.mipmap.icon_one,
-        R.mipmap.icon_two,
-        R.mipmap.icon_three,
-        R.mipmap.icon_four,
-        R.mipmap.icon_five
-    )
-    private val modelList: MutableList<SubModel?> = ArrayList()
-
-//    private fun initList() {
-//        modelList.clear()
-//        for (a in subs.indices) {
-//            val model = SubModel()
-//            model.name = subs[a]
-//            model.icon = icons[a]
-//            model.href = "http://192.168.1.229:9900/zhyl/yygl/mh/$a"
-//            modelList.add(model)
-//        }
-//    }
 
     override fun getItemCount(): Int {
         return dSize + 1
@@ -74,7 +55,6 @@ class TabRecyclerAdapter(
                 itemHeight = view.height
             }
             BaseViewHolder(view)
-            //            return new BaseViewHolder(getItemView(mResId, parent));
         }
     }
 
@@ -82,16 +62,42 @@ class TabRecyclerAdapter(
         if (helper.itemViewType == MultipleItem.ITEM) {
             helper.setText(R.id.title, item?.type)
             val mGrid = helper.getView<RecyclerView>(R.id.recycler_view)
-            mGrid.layoutManager = GridLayoutManager(mContext, 3)
-            val mAdapter = SubAdapter(R.layout.item_sub, item?.items!!)
+            mGrid.layoutManager = GridLayoutManager(mContext, 4)
+            val mAdapter = SubAdapter(item?.items!!)
             mGrid.adapter = mAdapter
+
             mAdapter.setOnItemClickListener { _: BaseQuickAdapter<*, *>?, _: View?, poi: Int ->
                 if (!isValidClick) {
-                    val intent = Intent()
-                    intent.setClass(mContext, HandleWebActivity::class.java)
-                        .putExtra("title", item.items[poi].name)
-                        .putExtra("url", item.items[poi].href)
-                    mContext.startActivity(intent)
+
+                    val needLog = if (item.items[poi].needLogin == null) {false}
+                    else {item.items[poi].needLogin!! }
+
+                    if (needLog && !MyApplication.mSp.getBoolean(ConstUtils.LOGIN_STATE)) {
+                        val builder = TitleDialog.Builder(mContext)
+                        builder.setTitle("登录账号").setMessage("访问该应用需要登录您的账号")
+                            .setPositiveButton(
+                                "前往登录"
+                            ) { dialog: DialogInterface, _: Int ->
+                                mContext.startActivity(
+                                    Intent(
+                                        mContext,
+                                        LoginActivity::class.java
+                                    )
+                                )
+                                dialog.dismiss()
+                            }
+                            .setNegativeButton(
+                                "看看别的"
+                            ) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
+                            .create().show()
+                        return@setOnItemClickListener
+                    } else {
+                        val intent = Intent()
+                        intent.setClass(mContext, HandleWebActivity::class.java)
+                            .putExtra("title", item.items[poi].name)
+                            .putExtra("url", item.items[poi].href)
+                        mContext.startActivity(intent)
+                    }
                 }
             }
         }
@@ -100,13 +106,6 @@ class TabRecyclerAdapter(
     companion object {
         private const val mResId = R.layout.item_layout
         private const val mEmpty = R.layout.fragment_home
-    }
-
-    init {
-        addItemType(MultipleItem.FOOTER, mEmpty)
-        addItemType(MultipleItem.ITEM, mResId)
-        dSize = data.size
-//        initList()
     }
 
 }

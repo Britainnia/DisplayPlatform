@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.kira.mypublishplatform.R
 import com.kira.mypublishplatform.base.BaseActivity
+import com.kira.mypublishplatform.databinding.ActivityFirstBinding
 import kotlinx.android.synthetic.main.activity_first.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -21,7 +22,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 //import butterknife.ButterKnife
 //import butterknife.OnClick
 
-class FirstActivity : BaseActivity() {
+class FirstActivity : BaseActivity<ActivityFirstBinding>() {
 //    @BindView(R.id.iv_back)
 //    lateinit var ivBack: ImageView
 //    @BindView(R.id.tv_title)
@@ -90,15 +91,11 @@ class FirstActivity : BaseActivity() {
 //        ButterKnife.bind(this)
 //    }
 
-    override fun loadXml() {
-        setContentView(R.layout.activity_first)
-    }
+//    override fun loadXml() {
+//        setContentView(R.layout.activity_first)
+//    }
 
     override fun getIntentData(savedInstanceState: Bundle?) {
-
-    }
-
-    override fun initView() {
 
     }
 
@@ -111,9 +108,9 @@ class FirstActivity : BaseActivity() {
     }
 
     override fun setListener() {
-        iv_back.setOnClickListener { finish() }
-        estimate.setOnClickListener { startActivity(Intent(mContext, TabActivity::class.java)) }
-        go_qrcode.setOnClickListener { Toast.makeText(mContext, "click code button", Toast.LENGTH_LONG).show() }
+        binding.ivBack.setOnClickListener { finish() }
+        binding.estimate.setOnClickListener { startActivity(Intent(mContext, TabActivity::class.java)) }
+        binding.goQrcode.setOnClickListener { Toast.makeText(mContext, "click code button", Toast.LENGTH_LONG).show() }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

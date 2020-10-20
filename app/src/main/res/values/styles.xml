@@ -9,9 +9,9 @@
         <item name="android:windowActionBar">false</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-<!--        <item name="android:windowActionBarOverlay">true</item>-->
-<!--        &lt;!&ndash; 兼容支持库 &ndash;&gt;-->
-<!--        <item name="windowActionBarOverlay">true</item>-->
+        <!--        <item name="android:windowActionBarOverlay">true</item>-->
+        <!--        &lt;!&ndash; 兼容支持库 &ndash;&gt;-->
+        <!--        <item name="windowActionBarOverlay">true</item>-->
 
     </style>
 
@@ -48,6 +48,26 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TabRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">@dimen/dp_5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">@dimen/text_xxxm</item>
+        <item name="android:textColor">@drawable/bottom_navigation_text_selector</item>
     </style>
 
 </resources>

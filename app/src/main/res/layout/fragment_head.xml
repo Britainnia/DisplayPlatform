@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.head.HeadFragment" >
+
+    <!--头部-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_50"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@color/theme"-->
+<!--        android:id="@+id/header"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/me"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/log_in"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="@dimen/text_h"-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_title"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="2"-->
+<!--            android:text=""-->
+<!--            android:textColor="@color/black_overlay"-->
+<!--            android:textSize="@dimen/text_xh"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/message"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/my_order"-->
+<!--            android:textSize="@dimen/text_h"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--    </LinearLayout>-->
+
+    <!--    <com.kira.mypublishplatform.view.ObservableScrollView-->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.bigkoo.convenientbanner.ConvenientBanner
+                android:id="@+id/convenientBanner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_200"
+                android:layout_marginBottom="@dimen/dp_2"
+                app:canLoop="true"
+                app:autoTurningTime="5000"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/first_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="应用"
+                android:textColor="@android:color/black"
+                android:background="@android:color/white"
+                android:textSize="@dimen/text_xh"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_weather" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_news" />
+
+            <RelativeLayout
+                android:id="@+id/ll_weather"
+                android:layout_margin="@dimen/dp_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/convenientBanner">
+
+                <TextView
+                    android:id="@+id/weather_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_xh"
+                    android:textColor="@android:color/black"
+                    android:text=""
+                    />
+
+                <TextView
+                    android:id="@+id/weather_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_toEndOf="@+id/weather_city"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_xxxm"
+                    android:textColor="@android:color/black"
+                    android:text="2020-12-12 08:11:52"
+                    />
+
+                <TextView
+                    android:id="@+id/weather_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@+id/weather_type"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:textSize="@dimen/text_xxm"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@android:color/darker_gray"
+                    android:text=""
+                    />
+
+                <TextView
+                    android:id="@+id/weather_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:textSize="@dimen/text_xxm"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="阴"
+                    />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/icon_news"
+                android:layout_width="@dimen/dp_70"
+                android:layout_height="@dimen/dp_70"
+                android:src="@mipmap/top_news"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toStartOf="@+id/some_lines"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_service" />
+
+            <LinearLayout
+                android:id="@+id/ll_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/icon_news">
+
+                <TextView
+                    android:id="@+id/stl_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_weight="4"
+                    android:paddingStart="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_xh"
+                    android:textColor="@android:color/black"
+                    android:text="动态" />
+
+                <TextView
+                    android:id="@+id/news_more"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/gray_text"
+                    android:text="更多"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/some_lines"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_70"
+                android:orientation="vertical"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icon_news"
+                app:layout_constraintTop_toTopOf="@+id/icon_news">
+
+                <TextView
+                    android:id="@+id/first_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_35"
+                    android:text="CCTV《信用中国》| 刘世平——大数据和XBRL领域引领者"
+                    android:textColor="@android:color/black"
+                    android:background="@color/hint_color"
+
+                    android:textSize="@dimen/text_xxm"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp_10"
+                    />
+
+                <TextView
+                    android:id="@+id/second_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_35"
+                    android:text="江南农商行再度签约吉贝克：深化数据整合，实现精准决策"
+                    android:textColor="@android:color/black"
+                    android:background="@color/hint_color"
+
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/text_xxm"
+                    android:padding="@dimen/dp_10"
+                    />
+
+            </LinearLayout>
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_news"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/ll_news" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <!--    </com.kira.mypublishplatform.view.ObservableScrollView>-->
+<!--    <include layout="@layout/include_header" />-->
+</LinearLayout>

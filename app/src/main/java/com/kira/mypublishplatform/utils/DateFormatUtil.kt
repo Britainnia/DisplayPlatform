@@ -32,80 +32,6 @@ class DateFormatUtil {
 //        }
 //        return getTime(new Date(targetTime), formatter);
 //    }
-    /**
-     * 将date转换成String
-     *
-     * @param date
-     * @param formatter
-     * @return
-     */
-    fun date2String(date: Date?, formatter: String?): String {
-        var formatter = formatter
-        if (null == formatter) { // default format
-            formatter = Companion.YMD_HMS_FORMAT
-        }
-        val sdf =
-            SimpleDateFormat(formatter, Locale.getDefault())
-        return sdf.format(date)
-    }
-
-    /**
-     * 把String转换成date
-     *
-     * @param strDate
-     * @return
-     * @throws ParseException
-     * @throws Exception      2015-11-12T04:55:56.000Z
-     */
-    fun string2Date(strDate: String?, format: String?): Date? {
-        var inputDf: DateFormat? = null
-        inputDf = SimpleDateFormat(format, Locale.getDefault())
-        inputDf.setTimeZone(TimeZone.getTimeZone("UTC"))
-        var result: Date? = null
-        try {
-            result = inputDf.parse(strDate)
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return result
-    }
-
-    @JvmOverloads
-    fun ConvertToDate(
-        strDate: String?,
-        strFormat: String? = Companion.YMD_HMS_FORMAT
-    ): String? {
-        val sf_from =
-            SimpleDateFormat(Companion.TimeStamp, Locale.getDefault())
-        val sf_to =
-            SimpleDateFormat(strFormat, Locale.getDefault())
-        sf_from.timeZone = TimeZone.getTimeZone("UTC")
-        try {
-            val ss = sf_from.parse(strDate)
-            return sf_to.format(ss)
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return null
-    }
-
-    /**
-     * 将时间戳转换成字符串
-     *
-     * @param dateTime
-     * @param format   格式
-     * @return
-     */
-    fun formatDateTimeMill(dateTime: Long, format: String?): String {
-        val date = Date(dateTime)
-        val simpleDateFormat =
-            SimpleDateFormat(format, Locale.getDefault())
-        return simpleDateFormat.format(date)
-    }
 
     companion object {
         const val TimeStamp = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -124,5 +50,74 @@ class DateFormatUtil {
         const val YMD_HMS_FORMAT_2 = "yyyy年MM月dd日 HH:mm:ss"
         const val YMD_HM_FORMAT_2 = "yyyy年MM月dd日 HH:mm"
         const val YMDHMS_FORMAT = "yyyyMMddHHmmss"
+
+        /**
+         * 将时间戳转换成字符串
+         *
+         * @param dateTime
+         * @param format   格式
+         * @return
+         */
+        fun formatDateTimeMill(
+            dateTime: Long,
+            format: String
+        ): String? {
+            val date = Date(dateTime)
+            val simpleDateFormat = SimpleDateFormat(format, Locale.getDefault())
+            return simpleDateFormat.format(date)
+        }
+
+        fun convertToDate(
+            strDate: String?,
+            strFormat: String = YMD_HMS_FORMAT
+        ): String? {
+            val sfFrom = SimpleDateFormat(TimeStamp, Locale.getDefault())
+            val sfTo = SimpleDateFormat(strFormat, Locale.getDefault())
+            sfFrom.timeZone = TimeZone.getTimeZone("UTC")
+            try {
+                val ss = sfFrom.parse(strDate)
+                return sfTo.format(ss)
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return null
+        }
+
+        /**
+         * 将date转换成String
+         *
+         * @param date
+         * @param formatter
+         * @return
+         */
+        fun date2String(date: Date, formatter: String): String? {
+    //        val formatter: String = formatter
+            val sdf = SimpleDateFormat(formatter, Locale.getDefault())
+            return sdf.format(date)
+        }
+
+        /**
+         * 把String转换成date
+         *
+         * @param strDate
+         * @return
+         * @throws ParseException
+         * @throws Exception      2015-11-12T04:55:56.000Z
+         */
+        fun string2Date(strDate: String, format: String): Date? {
+            val inputDf = SimpleDateFormat(format, Locale.getDefault())
+            inputDf.timeZone = TimeZone.getTimeZone("UTC")
+            var result: Date? = null
+            try {
+                result = inputDf.parse(strDate)
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return result
+        }
     }
 }

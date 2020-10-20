@@ -5,5 +5,7 @@ import java.util.*
 
 class AppBean {
     var login: Boolean? = false
-    var apps: List<MultipleItem> = ArrayList()
+    var apps: List<MultipleItem> = arrayListOf()
+
+
 }

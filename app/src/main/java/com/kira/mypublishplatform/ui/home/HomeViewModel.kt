@@ -3,7 +3,6 @@ package com.kira.mypublishplatform.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.kira.mypublishplatform.model.SubModel
 
 class HomeViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {

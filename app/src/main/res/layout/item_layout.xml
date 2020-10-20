@@ -8,12 +8,12 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        android:padding="@dimen/dp_8"
+        android:padding="@dimen/dp_10"
         android:gravity="center_vertical"
-        android:background="@color/green_bg"
+        android:background="@color/hint_color"
         android:text=""
         android:textSize="@dimen/text_xxxm"
-        android:textColor="@color/black_overlay"
+        android:textColor="@color/text_selected"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +21,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 

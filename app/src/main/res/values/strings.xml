@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyPublishPlatform</string>
+    <string name="app_name">吉贝云</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">发现</string>
     <string name="title_notifications">我的</string>
@@ -21,16 +21,20 @@
     <string name="me">我的</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="estimate_hint">说说你的看法，让其他顾客知道吧</string>
+    <string name="estimate_hint">说说你的建议后意见吧</string>
     <string name="inputUserName">请输入用户名</string>
     <string name="inputPassword">请输入密码</string>
     <string name="my_balance">我的余额</string>
-    <string name="my_order">我的订单</string>
+    <string name="my_order">消息通知</string>
     <string name="my_address">地址管理</string>
+    <string name="feed_back">意见反馈</string>
     <string name="log_out">退出登录</string>
+    <string name="log_in">正常登录</string>
     <string name="my_handle">我的办理</string>
+    <string name="about_us">关于我们</string>
     <string name="info_maintain">完善资料</string>
     <string name="modify_password">修改密码</string>
+    <string name="version_view">查看版本</string>
     <string name="change_cellphone">更换手机</string>
     <string name="quality">服务质量</string>
     <string name="attitude">服务态度</string>
@@ -45,7 +49,10 @@
     <string name="service_mark">服务备注</string>
     <string name="submit_order">提交订单</string>
     <string name="no_store">暂无商家</string>
-    <string name="no_order">暂无订单</string>
+    <string name="no_order">暂无消息</string>
     <string name="no_information">暂无资讯</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="about_us_content">\t\t&#160;应用汇聚平台为一个集企业社交、商业服务、电子商务、运营管理的企业级一站式服务平台。其包括手机移动端、pc端、微信端等个版本。\n\t\t&#160;应用汇聚平台通过“技术+专业”的完美结合，结合企业发展经营中的痛点，信息化建设缓慢，商务社交效率低，运营成本高等问题，打造一套解决企业强需求的解决方案。通过互联网+的思维，整合行业资源，搭建行业桥梁，拓宽行业交互场景，让各行各业在互联网的大环境中聚合成一个紧密的、和谐的商业交流圈，不仅推动各企业自身的发展，更增加行业黏性，促使行业的合纵连横发展。在虚假信息泛滥的商业时代，应用汇聚平台以信息真实性为唯一标准，致力于打造最真实的企业连接平台。\n\t\t&#160;在未来，我们会加快产品的迭代升级，为用户提供更多的满足企业的多元化需求的服务产品，形成更完整的服务线，促使企业向更高效的运转。\n</string>
 
 </resources>

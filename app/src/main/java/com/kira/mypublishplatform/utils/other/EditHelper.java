@@ -175,11 +175,6 @@ public class EditHelper {
             this.regex = regex;
         }
 
-
-
-
-
-
         public boolean check(Activity activity) {
             String s = getTextView().getText().toString().replaceAll("\\s*", "");
             if (view == null || !s.matches(regex)) {

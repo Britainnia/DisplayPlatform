@@ -20,8 +20,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="@dimen/dp_10"
-            android:onClick="back"
-            android:src="@drawable/ic_arrow_back"
+            android:src="@drawable/ic_arrow_back_white"
             android:scaleType="centerInside" />
 
         <TextView
@@ -40,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text=""
+            android:text="分享"
             android:textSize="@dimen/text_xxxm"
             android:textColor="@color/white" />
 

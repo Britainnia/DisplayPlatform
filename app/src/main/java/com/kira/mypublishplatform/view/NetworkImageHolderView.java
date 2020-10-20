@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.kira.mypublishplatform.R;
 
 /**
@@ -27,6 +28,7 @@ public class NetworkImageHolderView extends Holder<String> {
 
     @Override
     public void updateUI(String data) {
-        Glide.with(mContext).load(data).placeholder(R.mipmap.no_pic).into(imageView);
+        Glide.with(mContext).load(data).apply(new RequestOptions().placeholder(R.mipmap.no_pic).error(R.mipmap.no_resource)).into(imageView);
     }
+
 }

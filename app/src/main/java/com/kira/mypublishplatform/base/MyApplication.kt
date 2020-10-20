@@ -4,19 +4,22 @@ import android.app.Activity
 import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.os.Build
 import android.os.Process
-import androidx.multidex.MultiDex
+//import androidx.multidex.MultiDex
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.kira.mypublishplatform.api.DisApi
 import com.kira.mypublishplatform.utils.ConstUtils
 
 import com.kira.mypublishplatform.utils.Logger
+import com.kira.mypublishplatform.utils.NotificationUtils
 import com.kira.mypublishplatform.utils.SharedPreferencesUtils
 import okhttp3.OkHttpClient
 import org.xutils.x
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import rxhttp.wrapper.param.RxHttp
 
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -25,10 +28,6 @@ import java.util.concurrent.TimeUnit
  * app全局类
  */
 class MyApplication : Application() {
-    /**
-     * 全局上下文
-     */
-    private var mContext: Context? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -37,6 +36,8 @@ class MyApplication : Application() {
         Logger.i("===========onCreate=============")
         mSp = SharedPreferencesUtils(this)
 //        mNo = NotificationUtils(this)
+        isDebug = isApkInDebug(mContext)
+
         initDisplay() //初始屏幕信息
 //        initImageLoader(this) //初始图片加载器
 //        initImagePicker(); //初始图片选择器
@@ -45,20 +46,19 @@ class MyApplication : Application() {
         }
         initApi() //初始网络请求Api
         if (isMainProcess) {
-//            OpenInstall.init(this);
-
-        //初始化XUtils3
-            x.Ext.setDebug(true)
+            //初始化XUtils3
+            x.Ext.setDebug(isDebug)
             x.Ext.init(this)
-
         }
 
+        //初始化通知频道（Android 8.0以上要求）
+
     }
 
-    override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
-    }
+//    override fun attachBaseContext(base: Context) {
+//        super.attachBaseContext(base)
+//        MultiDex.install(this)
+//    }
 
     private fun closeAndroidPDialog() {
         try {
@@ -73,7 +73,8 @@ class MyApplication : Application() {
             e.printStackTrace()
         }
         try {
-            val cls = Class.forName("android.app.ActivityThread")
+            val cls =
+                Class.forName("android.app.ActivityThread")
             val declaredMethod =
                 cls.getDeclaredMethod("currentActivityThread")
             declaredMethod.isAccessible = true
@@ -106,6 +107,8 @@ class MyApplication : Application() {
                 .build()
 
             api = mRetrofit!!.create(DisApi::class.java)
+
+            RxHttp.init(client, isDebug)
         }
     }
 
@@ -113,7 +116,7 @@ class MyApplication : Application() {
      * 初始化屏幕的宽高信息
      */
     private fun initDisplay() { //初始化DisplayMetrics对象
-        val displayMetrics = mContext!!.resources.displayMetrics
+        val displayMetrics = mContext.resources.displayMetrics
         mDisplayHeight = displayMetrics.heightPixels
         mDisplayWidth = displayMetrics.widthPixels
         Logger.i("屏幕宽:$mDisplayWidth")
@@ -183,8 +186,11 @@ class MyApplication : Application() {
         /**
          *
          */
-//        var mNo: NotificationUtils? = null
-
+        lateinit var mNo: NotificationUtils
+        /**
+         * 全局上下文
+         */
+        lateinit var mContext: Context
 
         var isExit = false
         var activityList: MutableList<Activity?>? = LinkedList()
@@ -272,5 +278,28 @@ class MyApplication : Application() {
                 activity!!.finish()
             }
         }
+
+        /**
+         * 判断当前应用是否是debug状态
+         */
+        fun isApkInDebug(context: Context): Boolean {
+            return try {
+                val info = context.applicationInfo
+                info.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
+            } catch (e: java.lang.Exception) {
+                false
+            }
+        }
+
+        /**
+         * 相关程序 APPID 与 APPKEY
+         */
+
+        const val BuglyId = "de225e6f21"
+
+        const val WeChatId = "wx63fcbd5c581b6bb7"
+        //WeChatSercet = "034998f39070b6e6eaef4152c7134469"
+
+
     }
 }

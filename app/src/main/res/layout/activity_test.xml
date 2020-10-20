@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:bind="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="activity"-->
+<!--            type="com.kira.mypublishplatform.activity.TestActivity"/>-->
+
+<!--        <variable-->
+<!--            name="model"-->
+<!--            type="com.kira.mypublishplatform.model.RegisterModel"/>-->
+
+<!--    </data>-->
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+<!--        tools:context=".activity.TestActivity" />-->
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_50"-->
+<!--        android:background="@android:color/white"-->
+<!--        android:focusable="true"-->
+<!--        android:focusableInTouchMode="true">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="@dimen/dp_24"-->
+<!--            android:layout_height="@dimen/dp_24"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:contentDescription="手机号"-->
+<!--            android:scaleType="centerInside"-->
+<!--            android:src="@mipmap/icon_three"/>-->
+
+<!--        <View-->
+<!--            android:layout_width="1dp"-->
+<!--            android:layout_height="18dp"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:background="@color/bs_blue"/>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginStart="48dp"-->
+<!--            android:hint="请输入您的手机号码">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/user_mobile"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:imeOptions="actionNext"-->
+<!--                android:inputType="phone"-->
+<!--                android:maxLength="11"-->
+<!--                android:singleLine="true"-->
+<!--                android:text="@={model.userPhone}"-->
+<!--                android:textColor="@color/text_color"-->
+<!--                android:textSize="@dimen/text_xxxm"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--    </FrameLayout>-->
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.5dp"-->
+<!--        android:background="@color/bs_blue" />-->
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_50"-->
+<!--        android:background="@android:color/white">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="@dimen/dp_24"-->
+<!--            android:layout_height="@dimen/dp_24"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:contentDescription="密码"-->
+<!--            android:scaleType="centerInside"-->
+<!--            android:src="@mipmap/icon_one"/>-->
+
+<!--        <View-->
+<!--            android:layout_width="1dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginStart="34dp"-->
+<!--            android:background="@color/bs_blue"/>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:layout_gravity="center_vertical|start"-->
+<!--            android:layout_marginStart="48dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:hint="请输入您的密码">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/user_password"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:singleLine="true"-->
+<!--                android:text="@={model.userPwd}"-->
+<!--                android:textColor="@color/text_color"-->
+<!--                android:maxLength="20"-->
+<!--                android:textSize="@dimen/text_xxxm"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/check_visible"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end|center_vertical"-->
+<!--            android:gravity="center"-->
+<!--            android:minHeight="24dp"/>-->
+
+<!--    </FrameLayout>-->
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0.5dp"-->
+<!--        android:background="@color/bs_blue" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/register_btn"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_50"-->
+<!--        android:layout_margin="@dimen/dp_25"-->
+<!--        android:background="@color/green"-->
+<!--        android:enabled="false"-->
+<!--        android:text="注册"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:textSize="@dimen/text_xh"-->
+<!--        bind:onClickListener="@{activity}"-->
+<!--        />-->
+<!--    </LinearLayout>-->
+<!--</layout>-->

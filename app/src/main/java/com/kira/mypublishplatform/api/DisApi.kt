@@ -1,5 +1,6 @@
 package com.kira.mypublishplatform.api
 
+import android.view.textclassifier.TextLanguage
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -204,6 +205,14 @@ interface DisApi {
     fun clientRegister(@Body body: RequestBody?): Observable<ResponseBody>
 
     @FormUrlEncoded
+    @POST("disapp/remote/u/regadd")
+    fun clientRegister(@Field("loginAccount") account: String?
+                       ,@Field("loginPass") password: String?
+                       ,@Field("userPhone") phone: String?
+                       ,@Field("userName") name: String?
+                       ,@Field("verCode") code: String?): Observable<ResponseBody>
+
+    @FormUrlEncoded
     @POST("disapp/remote/u/sendmsg")
     fun sendResetMsg(@Field("loginAccount") phone: String?): Observable<ResponseBody>
 
@@ -214,12 +223,12 @@ interface DisApi {
      * @param password 密码
      * @return
      */
+    @FormUrlEncoded
     @POST("disapp/remote/u/repass")
     fun clientResetPass(
         @Field("oldPhone") phone: String?
         , @Field("newPass") password: String?
         , @Field("msgCode") code: String?
-        , @Field("roleType") role: String?
     ): Observable<ResponseBody>
 
     /**
@@ -613,9 +622,15 @@ interface DisApi {
      */
     @FormUrlEncoded
     @POST("zhyl-provider/social/inServiceDetail")
-    fun getsServiceDetail(
-        @Header("TOKEN") token: String?, @Field(
-            "orderId"
-        ) orderId: Int
+    fun getsServiceDetail(@Header("TOKEN") token: String?, @Field("orderId") orderId: Int
+    ): Observable<ResponseBody>
+
+    /**
+     * 获取本地天气实况
+     */
+    @GET("https://api.seniverse.com/v3/weather/now.json?")
+    fun getWeather(@Query("key") key: String?
+                   , @Query("location") name: String?
+                   , @Query("language") language: String?
     ): Observable<ResponseBody>
 }

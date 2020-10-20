@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kira.mypublishplatform.model.OldInfoModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--头部-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/header">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/ic_arrow_back_black"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:text="账户与安全"
+                android:textColor="@color/black_overlay"
+                android:textSize="@dimen/text_xh"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="@dimen/dp_10"
+                android:gravity="center"
+                android:text=""
+                android:textSize="@dimen/text_xxxm"
+                android:textColor="@color/black_overlay" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:padding="@dimen/dp_10"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:orientation="horizontal">-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="头像"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/text_color"/>-->
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/userImg"-->
+                <!--                    android:layout_width="@dimen/dp_50"-->
+                <!--                    android:layout_height="@dimen/dp_50"-->
+                <!--                    android:src="@mipmap/head_image"/>-->
+                <!--            </LinearLayout>-->
+                <!--            <View-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/dp_1"-->
+                <!--                android:layout_marginStart="@dimen/dp_10"-->
+                <!--                android:layout_marginEnd="@dimen/dp_10"-->
+                <!--                android:background="@color/color_line"/>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_xxxm"
+                        android:textColor="@color/text_color"
+                        android:text="账号" />
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:text="@={model.loginAccount}"
+                        android:textSize="@dimen/text_xxxm"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:background="@color/color_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_xxxm"
+                        android:textColor="@color/text_color"
+                        android:text="姓名" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:text="@={model.oldName}"
+                        android:textSize="@dimen/text_xxxm"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:background="@color/color_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_xxxm"
+                        android:textColor="@color/text_color"
+                        android:text="手机号" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/dp_5"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:text="@={model.oldPhone}"
+                        android:textSize="@dimen/text_xxxm"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:background="@color/color_line" />
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:padding="@dimen/dp_10"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:orientation="horizontal">-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/red"-->
+                <!--                    android:text=""/>-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/text_color"-->
+                <!--                    android:text="慢性病类型"/>-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/diseaseType"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:gravity="end|center_vertical"-->
+                <!--                    android:hint="请选择慢性病类型"-->
+                <!--                    android:onClick="disease"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:background="@null"/>-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="@dimen/dp_25"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:onClick="disease"-->
+                <!--                    android:src="@drawable/more"/>-->
+                <!--            </LinearLayout>-->
+
+                <!--            <View-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/dp_1"-->
+                <!--                android:layout_marginStart="@dimen/dp_10"-->
+                <!--                android:layout_marginEnd="@dimen/dp_10"-->
+                <!--                android:background="@color/color_line"/>-->
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:padding="@dimen/dp_10"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:orientation="horizontal">-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/red"-->
+                <!--                    android:text=""/>-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/text_color"-->
+                <!--                    android:text="月收入"/>-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/monthInComes"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:gravity="end|center_vertical"-->
+                <!--                    android:hint="请选择月收入范围"-->
+                <!--                    android:onClick="income"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:background="@null"/>-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="@dimen/dp_25"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:onClick="income"-->
+                <!--                    android:src="@drawable/more"/>-->
+                <!--            </LinearLayout>-->
+
+                <!--            <View-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/dp_1"-->
+                <!--                android:layout_marginStart="@dimen/dp_10"-->
+                <!--                android:layout_marginEnd="@dimen/dp_10"-->
+                <!--                android:background="@color/color_line"/>-->
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:padding="@dimen/dp_10"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:orientation="horizontal">-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/red"-->
+                <!--                    android:text=""/>-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/text_color"-->
+                <!--                    android:text="经济来源"/>-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/incomeSource"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:gravity="end|center_vertical"-->
+                <!--                    android:hint="请选择收入来源"-->
+                <!--                    android:onClick="source"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:background="@null"/>-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="@dimen/dp_25"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:onClick="source"-->
+                <!--                    android:src="@drawable/more"/>-->
+                <!--            </LinearLayout>-->
+
+                <!--            <View-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/dp_1"-->
+                <!--                android:layout_marginStart="@dimen/dp_10"-->
+                <!--                android:layout_marginEnd="@dimen/dp_10"-->
+                <!--                android:background="@color/color_line"/>-->
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:padding="@dimen/dp_10"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:orientation="horizontal">-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/red"-->
+                <!--                    android:text=""/>-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:textColor="@color/text_color"-->
+                <!--                    android:text="社保号"/>-->
+                <!--                <EditText-->
+                <!--                    android:id="@+id/liveStatus"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:padding="@dimen/dp_5"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:gravity="end"-->
+                <!--                    android:hint="请输入补贴账号"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="@dimen/text_xxxm"-->
+                <!--                    android:background="@null"/>-->
+                <!--            </LinearLayout>-->
+
+                <!--            <View-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="@dimen/dp_1"-->
+                <!--                android:layout_marginStart="@dimen/dp_10"-->
+                <!--                android:layout_marginEnd="@dimen/dp_10"-->
+                <!--                android:background="@color/color_line"/>-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_20" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

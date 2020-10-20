@@ -7,19 +7,11 @@ object ConstUtils {
     /**
      * 集成路径
      */
-    const val BASE_URL = "http://120.199.82.52:5000/"
+    const val BASE_URL = "http://183.134.253.238/"
     /**
      * 测试集成路径
      */
     const val BASE_TEST_URL = "http://192.168.1.107:9900/"
-    /**
-     * 图片加载主路径
-     */
-//    public static String IMAGE_HOST = "http://120.27.138.91:3600/api/containers/images/download/";
-    /**
-     * 图片加载测试路径
-     */
-    val IMAGE_HOST = "http://120.27.138.91:3601/api/containers/images/download/"
     /**
      * 登录状态
      */
@@ -35,7 +27,7 @@ object ConstUtils {
     /**
      * 用户密码
      */
-    val USER_PASSWORD = "userPassword"
+    const val USER_PASSWORD = "userPassword"
     /**
      * 用户id
      */
@@ -95,7 +87,7 @@ object ConstUtils {
     /**
      * 手机号码
      */
-    val PHONE = "phone"
+    const val PHONE = "phone"
     /**
      * 注册验证码
      */

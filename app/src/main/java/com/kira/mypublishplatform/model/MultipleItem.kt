@@ -3,10 +3,12 @@ package com.kira.mypublishplatform.model
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import java.util.*
 
-class MultipleItem(private val itemType: Int) : MultiItemEntity {
+data class MultipleItem(
+    private val itemType: Int
+) : MultiItemEntity {
 
     var type: String? = null
-    var items: List<SubModel> = ArrayList()
+    var items: MutableList<SubModel> = arrayListOf()
 
     override fun getItemType(): Int {
         return itemType
